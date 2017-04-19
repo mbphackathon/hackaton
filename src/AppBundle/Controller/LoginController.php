@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("/login")
@@ -20,7 +21,7 @@ class LoginController extends Controller
         $manager = $this->container->get('app.login');
         $manager->gotoGoogleLogin();
 
-        return array();
+        return $this->render('Login/login.html.twig', []);
     }
 
      /**
@@ -32,6 +33,6 @@ class LoginController extends Controller
         $manager = $this->container->get('app.login');
         $manager->gotoLinkedinLogin();
 
-        return array();
+        return $this->render('Login/login.html.twig', []);
     }
 }
