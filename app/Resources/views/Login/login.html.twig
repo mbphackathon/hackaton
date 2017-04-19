@@ -1,18 +1,3 @@
 {% extends 'base.html.twig' %}
 
-{% block content %}
-    <div class="row" style="padding:12px">
-        <a style="width:100%" href="{{ path('login_google')}}" class="btn btn-raised btn-primary">S'inscrire avec Gmail</a>
-
-        <div class="bs-component" style="padding: 20px">
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-            <div class="form-group">
-                <div class="col-md-12" style="text-align:center">
-                    <button type="submit" class="btn btn-raised btn-primary">Inscription</button>
-                </div>
-            </div>
-            {{ form_end(form) }}
-        </div>
-    </div>
-{% endblock %}
+{% block content %}{% endblock %}
