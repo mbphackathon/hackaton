@@ -1,20 +1,15 @@
 {% extends 'base.html.twig' %}
 
-
-
-
-
-
-
 {% block content %}
-
+    <form method="GET" action="{{ url('user:profile:list') }}">
+        <input type="text" name="query" value="{{ query }}">
+        <button type="submit">Rechercher</button>
+    </form>
     <div class="wrapper">
 
         <div class="jcarousel-wrapper">
             <div class="jcarousel">
                 <ul>
-
-
 
                     {% for user in users %}
 

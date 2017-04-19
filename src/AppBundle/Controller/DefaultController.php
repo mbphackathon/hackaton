@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\User;
 use AppBundle\Form\InscriptionUserType;
 use AppBundle\Form\UserType;
+use AppBundle\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
@@ -75,13 +76,22 @@ class DefaultController extends Controller
      */
     public function profileListAction(Request $request)
     {
+        /** @var UserRepository $userRepository */
+        $userRepository = $this->getDoctrine()->getManager()->getRepository('AppBundle:User');
+        $query = $request->get('query');
+        if($query) {
+            $users = $userRepository->createQueryBuilder('u')
+                ->where('u.tags LIKE :query')
+                ->setParameter('query', '%'.$query.'%')
+                ->getQuery()
+                ->execute();
+        } else {
+            /** @var User[] $users */
+            $users = $userRepository->findAll();
+        }
 
-        $em = $this->getDoctrine()->getManager();
-        /** @var User $user */
-        $users = $em->getRepository('AppBundle:User')->findAll();
-        return $this->render('default/profile-list.html.twig', ['users' => $users]);
+        return $this->render('default/profile-list.html.twig', ['users' => $users, 'query' => $query]);
     }
-
 
     private function updateUser(User $user, $oldThumbnail = null)
 
