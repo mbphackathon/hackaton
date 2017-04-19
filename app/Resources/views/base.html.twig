@@ -27,6 +27,11 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+    <link rel="stylesheet" type="text/css" href="/vendor/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="/vendor/slick/slick-theme.css"/>
+
+
     <link rel="stylesheet" href="/asset/style.css">
     <link rel="stylesheet" href="/asset/override.css">
 
@@ -50,17 +55,25 @@
 
 
         <div class="row">
-            <div class="col-md-12" style="text-align:center">
+            <div class="col-md-6 col-md-offset-3" style="">
+
+
+
                 <img src="/public/images/logo.png" title="logo My Best team" style="width:350px"/>
+
+
+
+                <div class="container">
+                    {% block content %}{% endblock %}
+                </div>
+
+
             </div>
         </div>
 
 
 
 
-        <div class="container">
-            {% block content %}{% endblock %}
-        </div>
 
 
 
@@ -85,14 +98,11 @@
 
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script>
-        (function () {
+
+    <script type="text/javascript" src="/vendor/slick/slick.min.js"></script>
 
 
 
-        })();
-
-    </script>
     <script src="/vendor/bootstrap-material-design-master/dist/js/ripples.min.js"></script>
     <script src="/vendor/bootstrap-material-design-master/dist/js/material.min.js"></script>
     <script src="//fezvrasta.github.io/snackbarjs/dist/snackbar.min.js"></script>
@@ -107,54 +117,17 @@
     <script>
     $(function () {
         $.material.init();
-        $(".shor").noUiSlid
+
+        $('.carousel').slick({
+            arrows: false
+        });
+
+
     })
 
 </script>
 
 
-
-<script>
-
-
-    (function($) {
-        $(function() {
-            $('.jcarousel').jcarousel();
-
-            $('.jcarousel-control-prev')
-                .on('jcarouselcontrol:active', function() {
-                    $(this).removeClass('inactive');
-                })
-                .on('jcarouselcontrol:inactive', function() {
-                    $(this).addClass('inactive');
-                })
-                .jcarouselControl({
-                    target: '-=1'
-                });
-
-            $('.jcarousel-control-next')
-                .on('jcarouselcontrol:active', function() {
-                    $(this).removeClass('inactive');
-                })
-                .on('jcarouselcontrol:inactive', function() {
-                    $(this).addClass('inactive');
-                })
-                .jcarouselControl({
-                    target: '+=1'
-                });
-
-            $('.jcarousel-pagination')
-                .on('jcarouselpagination:active', 'a', function() {
-                    $(this).addClass('active');
-                })
-                .on('jcarouselpagination:inactive', 'a', function() {
-                    $(this).removeClass('active');
-                })
-                .jcarouselPagination();
-        });
-    })(jQuery);
-
-</script>
 
 </body>
 </html>

@@ -1,56 +1,67 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+
     <form method="GET" action="{{ url('user:profile:list') }}">
-        <input type="text" name="query" value="{{ query }}">
-        <button type="submit">Rechercher</button>
-    </form>
-    <div class="wrapper">
-
-        <div class="jcarousel-wrapper">
-            <div class="jcarousel">
-                <ul>
-
-                    {% for user in users %}
-
-
-                        <li style="border: solid 1px #000" class="thumbnail ">
-                            <div>
-                                <div style="">
-                                    <!--
-                                    <img src="{{ user.thumbnail }}" style="max-height: 250px"/>
-                                    //-->
-
-                                    <img src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg" style="max-height: 250px"/>
-
-                                </div>
-
-                                <div>
-                                    {{ user.firstname }} {{ user.lastname }}
-                                </div>
-                            </div>
-                        </li>
-
-
-                    {% endfor %}
 
 
 
+    <div class="form-group label-floating" style="width:80%">
+        <label class="control-label" for="focusedInput1">Recherche</label>
+        <input class="form-control" id="focusedInput1" type="text" name="query" value="{{ query }}">
 
-                </ul>
-            </div>
-
-            <p class="photo-credits">
-                Photos by <a href="http://www.mw-fotografie.de">Marc Wiegelmann</a>
-            </p>
-
-            <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
-            <a href="#" class="jcarousel-control-next">&rsaquo;</a>
-
-            <p class="jcarousel-pagination">
-
-            </p>
+        <div style="text-align:right">
+        <button type="submit" class="btn btn-primary">Chercher</button>
         </div>
+    </div>
+
+    </form>
+
+
+
+
+
+
+
+
+    <div class="carousel col-md-6 col-md-offset-3; ">
+
+
+
+        {% for user in users %}
+
+
+            <div style="margin-top:10px">
+
+                <a href="/profile/view/{{ user.id }}">
+
+                <div>
+
+                    <div style="">
+                        {% if user.thumbnail %}
+                            <img src="{{ user.thumbnail }}" style="max-height: 150px; border-radius: 50%"/>
+                            {% else %}
+                                <img src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg" style="max-height: 150px; border-radius: 50%"/>
+                        {% endif %}
+                    </div>
+
+
+                    <div style="margin-top: 5px;">
+                        {{ user.firstname }} {{ user.lastname }}
+                    </div>
+
+                    <div>
+                        {{ user.description }}
+                    </div>
+                </div>
+
+            </a>
+
+            </div>
+        {% endfor %}
+
+
+
     </div>
 
 
