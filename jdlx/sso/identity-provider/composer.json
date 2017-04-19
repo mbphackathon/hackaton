@@ -1,0 +1,26 @@
+{
+  "name": "mybestpro-sso/identity-provider",
+  "require": {
+      "psr/log": "dev-master"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@gitlabs.mybestpro:mybestpro-sso/identity-provider-filters.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@gitlabs.mybestpro:mybestpro-sso/identity-provider-simplesaml.git"
+    }
+  ],
+  "require": {
+    "psr/log": "dev-master",
+    "mybestpro-sso/identity-provider-filters": "dev-master",
+    "mybestpro-sso/identity-provider-simplesaml": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mybestpro\\SSO\\IdentityProvider\\": "src/"
+    }
+  }
+}

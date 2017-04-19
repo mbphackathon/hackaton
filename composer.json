@@ -14,7 +14,11 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Tests\\": "tests/"
+      "Tests\\": "tests/",
+      "JDLX\\": "jdlx/src",
+      "Mybestpro\\Selfcare\\IdentityService\\": "jdlx/sso/IdentityService",
+      "Mybestpro\\Selfcare\\Configuration\\IdentityService\\": "jdlx/sso/Configuration",
+      "Mybestpro\\SSO\\IdentityProvider\\": "jdlx/sso/IdentityProvider/src"
     },
     "files": [
       "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
