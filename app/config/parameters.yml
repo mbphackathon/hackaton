@@ -11,4 +11,4 @@ parameters:
     mailer_password: null
     secret: ThisTokenIsNotSoSecretChangeIt
 
-    thumbnail_directory: '%kernel.root_dir%/../web/uploads/thumbnail
+    thumbnail_directory: %kernel.root_dir%/../web/uploads/thumbnail
