@@ -16,9 +16,12 @@
                                     <!--
                                     <img src="{{ user.thumbnail }}" style="max-height: 250px"/>
                                     //-->
-
-                                    <img src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg" style="max-height: 250px"/>
-
+                                    {% set isAbsolu = user.thumbnail|slice(0, 5) %}
+                                    {% if isAbsolu != 'https' %}
+                                    <img src="{{ asset('uploads/thumbnail/' ~ user.thumbnail) }}" style="width: 200px; border-radius:50%"/>
+                                    {% else %}
+                                    <img src="{{ user.thumbnail }}" style="width: 200px; border-radius:50%"/>
+                                    {% endif %}
                                 </div>
 
                                 <div>
