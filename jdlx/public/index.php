@@ -40,10 +40,8 @@
   ================================================== -->
     <div>
         <div class="row">
-            <div class="col-md-6">
-
-                <!--navbar //-->
-
+            <div class="col-md-12">
+                <?php include(__DIR__.'/partial/navbar.php'); ?>
             </div>
         </div>
 
@@ -59,10 +57,21 @@
 
         <div class="container">
             <div class="row" style="padding:12px">
-                <a style="width:100%" href="{{ path('login_google')}}" class="btn btn-raised btn-primary">S'inscrire avec Gmail</a>
+                    <a style="width:100%" href="http://www.mybestteam.dev/jdlx/view/inscription.php" class="btn btn-raised btn-primary">S'inscrire avec Gmail</a>
+            </div>
+        </div>
 
 
 
+
+
+    <!-- Forms
+  ================================================== -->
+    <div class="">
+
+
+        <div class="row">
+            <div class="col-md-6">
                 <div class="bs-component" style="padding: 20px">
                     <form class="form-horizontal"method="post" action="">
                         <fieldset>
@@ -99,56 +108,52 @@
                         </fieldset>
                     </form>
                 </div>
-
-
-
-
-
-
             </div>
+
         </div>
-
-
-
-
-
-        <!-- Forms
-      ================================================== -->
-        <div class="">
-
-
-            <div class="row">
-                <div class="col-md-6">
-
-                </div>
-
-            </div>
-        </div>
-
     </div>
+
 </div>
 
 
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script>
-        (function () {
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script>
+    (function () {
 
 
 
-        })();
+    })();
 
-    </script>
-    <script src="vendor/bootstrap-material-design-master/dist/js/ripples.min.js"></script>
-    <script src="vendor/bootstrap-material-design-master/dist/js/material.min.js"></script>
-    <script src="//fezvrasta.github.io/snackbarjs/dist/snackbar.min.js"></script>
+</script>
+<script src="vendor/bootstrap-material-design-master/dist/js/ripples.min.js"></script>
+<script src="vendor/bootstrap-material-design-master/dist/js/material.min.js"></script>
+<script src="//fezvrasta.github.io/snackbarjs/dist/snackbar.min.js"></script>
 
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
+<script>
+    $(function () {
+        $.material.init();
+        $(".shor").noUiSlider({
+            start: 40,
+            connect: "lower",
+            range: {
+                min: 0,
+                max: 100
+            }
+        });
 
+        $(".svert").noUiSlider({
+            orientation: "vertical",
+            start: 40,
+            connect: "lower",
+            range: {
+                min: 0,
+                max: 100
+            }
+        });
+    });
+</script>
 </body>
 </html>
-
-
-
-
