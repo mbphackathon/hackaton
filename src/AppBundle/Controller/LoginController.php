@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use JDLX\SocialLogin;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,7 +18,7 @@ class LoginController extends Controller
      */
     public function googleLoginAction(Request $request)
     {
-
+        /** @var SocialLogin $manager */
         $manager = $this->container->get('app.login');
         $manager->gotoGoogleLogin();
 
@@ -29,7 +30,7 @@ class LoginController extends Controller
      */
     public function linkedinLoginAction(Request $request)
     {
-
+        /** @var SocialLogin $manager */
         $manager = $this->container->get('app.login');
         $manager->gotoLinkedinLogin();
 

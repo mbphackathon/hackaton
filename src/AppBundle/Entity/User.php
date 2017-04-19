@@ -60,6 +60,13 @@ class User
     /**
      * @var string
      *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="description", type="string", length=1200, nullable=true)
      */
     private $description;
@@ -275,6 +282,16 @@ class User
     public function getTags()
     {
         return $this->tags;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
     }
 }
 
