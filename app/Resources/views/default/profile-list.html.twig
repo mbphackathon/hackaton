@@ -1,24 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'default/profile-base.html.twig' %}
 
 {% block content %}
-
-    <form method="GET" action="{{ url('user:profile:list') }}">
-
-
-
-    <div class="form-group label-floating" style="width:80%">
-        <label class="control-label" for="focusedInput1">Recherche</label>
-        <input class="form-control" id="focusedInput1" type="text" name="query" value="{{ query }}">
-
-        <div style="text-align:right">
-        <button type="submit" class="btn btn-primary">Chercher</button>
-        </div>
-    </div>
-
-    </form>
-
-
-
 
 
 
