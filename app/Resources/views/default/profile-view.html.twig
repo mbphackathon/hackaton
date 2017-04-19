@@ -1,9 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+    {% if user.thumbnail %}
+    <img src="{{ asset('uploads/thumbnail/' ~ user.thumbnail) }}" style="max-width: 80%;"/>
+        {% endif %}
     {{ user.email }}
     {{ user.firstname }}
     {{ user.lastname }}
+
+    <ul>
+        {% for tag in user.tagsArray %}
+            <li>{{ tag }}</li>
+        {% else %}
+            <li>Aucun tag séléctionné</li>
+        {% endfor %}
+    </ul>
 
     <a href="{{ url("profile:update", {'id': user.id}) }}" target="_blank" >Mise à jour</a>
 {% endblock %}
