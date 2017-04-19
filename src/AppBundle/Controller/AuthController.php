@@ -32,8 +32,8 @@ class AuthController extends Controller
         $em = $this->getDoctrine()->getManager();
         $em->persist($user);
         $em->flush();
-        die(var_dump('ok'));
-        return $this->redirectToRoute('home');
+
+        return $this->redirectToRoute('accueil');
     }
 
 }
