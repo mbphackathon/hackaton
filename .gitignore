@@ -1,0 +1,6 @@
+web/
+vendor/
+var/cache/
+var/logs/
+var/sessions/
+bootstrap.php.cache
