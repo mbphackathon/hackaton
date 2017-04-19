@@ -8,7 +8,7 @@ class SocialLogin
 
     public function gotoGoogleLogin()
     {
-        $google=new \Mybestpro\Selfcare\IdentityService\Linkedin();
+        $google=new \Mybestpro\Selfcare\IdentityService\Google();
         $stateId=uniqId();
         $url=$google->getConsentURL($stateId);
         header('Location: '.$url);
