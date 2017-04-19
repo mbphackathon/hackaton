@@ -22,7 +22,7 @@ class LoginController extends Controller
         $manager = $this->container->get('app.login');
         $manager->gotoGoogleLogin();
 
-        return $this->render('Login/login.html.twig', []);
+        return new Response('ok');
     }
 
      /**
