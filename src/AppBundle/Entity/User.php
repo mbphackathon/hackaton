@@ -79,14 +79,9 @@ class User
     private $position;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag", cascade={"persist"})
+     * @ORM\Column(name="tags", type="string", length=5000, nullable=true)
      */
     private $tags;
-
-    public function __construct()
-    {
-        $this->tags = new ArrayCollection();
-    }
 
     /**
      * Get id
@@ -267,21 +262,27 @@ class User
     }
 
 
-    public function addTag(Tag $tag)
+    public function setTags($tags)
     {
-        $this->tags[] = $tag;
-
-        return $this;
-    }
-
-    public function removeTag(Tag $tag)
-    {
-        $this->tags->removeElement($tag);
+        $this->tags = $tags;
     }
 
     public function getTags()
     {
         return $this->tags;
+    }
+
+    public function getTagsArray()
+    {
+        $tags = [];
+        foreach(explode(",", $this->tags) as $tag) {
+            $tag = ltrim($tag);
+            if(!empty($tag)) {
+                $tags[] = $tag;
+            }
+        }
+
+        return $tags;
     }
 
     public function getEmail()

@@ -18,13 +18,13 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
         $user = new User();
         $form = $this->createForm(InscriptionUserType::class, $user);
+        $oldThumbnail = $user->getThumbnail();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->updateUser($user);
+            $this->updateUser($user, $oldThumbnail);
             return $this->redirect($this->generateUrl('user:profile:view', ['id' => $user->getId()]));
         }
 
@@ -44,10 +44,11 @@ class DefaultController extends Controller
             throw new HttpException('Utilisateur non trouvé!');
         }
         $form = $this->createForm(UserType::class, $user);
+        $oldThumbnail = $user->getThumbnail();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->updateUser($user);
+            $this->updateUser($user, $oldThumbnail);
             return $this->redirect($this->generateUrl('user:profile:view',  ['id' => $user->getId()]));
         }
 
@@ -69,7 +70,6 @@ class DefaultController extends Controller
         return $this->render('default/profile-view.html.twig', ['user' => $user]);
     }
 
-
     /**
      * @Route("/profile/list", name="user:profile:list")
      */
@@ -83,8 +83,8 @@ class DefaultController extends Controller
     }
 
 
+    private function updateUser(User $user, $oldThumbnail = null)
 
-    private function updateUser(User $user)
     {
         $em = $this->getDoctrine()->getManager();
         /** @var UploadedFile $thumbnail */
@@ -98,6 +98,9 @@ class DefaultController extends Controller
                 $fileName
             );
             $user->setThumbnail($fileName);
+        }
+        if($oldThumbnail != null && $user->getThumbnail() == null) {
+            $user->setThumbnail($oldThumbnail);
         }
         $em->persist($user);
         $em->flush();
