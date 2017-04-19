@@ -2,6 +2,12 @@
 
 {% block content %}
 
+<div class="wrapper">
+
+
+
+
+
 
 
 
@@ -17,27 +23,27 @@
 
                 <a href="/profile/view/{{ user.id }}">
 
-                <div>
+                    <div>
 
-                    <div style="">
-                        {% if user.thumbnail %}
-                            <img src="{{ user.thumbnail }}" style="max-height: 150px; border-radius: 50%"/>
+                        <div style="">
+                            {% if user.thumbnail %}
+                                <img src="{{ user.thumbnail }}" style="max-height: 150px; border-radius: 50%"/>
                             {% else %}
                                 <img src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg" style="max-height: 150px; border-radius: 50%"/>
-                        {% endif %}
+                            {% endif %}
+                        </div>
+
+
+                        <div style="margin-top: 5px;">
+                            {{ user.firstname }} {{ user.lastname }}
+                        </div>
+
+                        <div>
+                            {{ user.description }}
+                        </div>
                     </div>
 
-
-                    <div style="margin-top: 5px;">
-                        {{ user.firstname }} {{ user.lastname }}
-                    </div>
-
-                    <div>
-                        {{ user.description }}
-                    </div>
-                </div>
-
-            </a>
+                </a>
 
             </div>
         {% endfor %}
@@ -48,6 +54,6 @@
 
 
 
-{% endblock %}
+    {% endblock %}
 
 

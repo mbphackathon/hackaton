@@ -116,4 +116,19 @@ class DefaultController extends Controller
         $em->flush();
         $em->refresh($user);
     }
+
+     /**    
+     * @Route("/accueil", name="accueil")
+     */
+    public function accueilAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        /** @var User $user */
+        $user = $em->getRepository('AppBundle:User')->findAll();
+        if(!$user) {
+            throw new HttpException('Utilisateur non trouvé!');
+        }
+        shuffle($user);
+        return $this->render('default/profile-view.html.twig', ['user' => $user[0], 'home' => true]);
+    }
 }

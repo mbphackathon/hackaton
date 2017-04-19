@@ -23,7 +23,6 @@ class LoginController extends Controller
         $manager->gotoGoogleLogin();
 
         exit();
-        return new Response('ok');
     }
 
      /**

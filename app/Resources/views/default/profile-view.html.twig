@@ -1,6 +1,9 @@
 {% extends 'default/profile-base.html.twig' %}
 
 {% block content %}
+    {% if home is defined %}
+        <div>&Acute; découvrir</div>
+    {% endif %}
     <div class="col-md-12" style="text-align:center; font-size:18px; font-weight: bold">
         {% if user.thumbnail %}
         {% set isAbsolu = user.thumbnail|slice(0, 5) %}
