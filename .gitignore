@@ -6,3 +6,4 @@ bootstrap.php.cache
 composer.lock
 .idea
 nbproject/
+app/config/parameters.yml
