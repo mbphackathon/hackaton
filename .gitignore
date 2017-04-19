@@ -3,3 +3,5 @@ var/cache/
 var/logs/
 var/sessions/
 bootstrap.php.cache
+composer.lock
+.idea
