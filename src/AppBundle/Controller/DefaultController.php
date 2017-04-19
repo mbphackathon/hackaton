@@ -33,13 +33,13 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/profile/update", name="profile:update")
+     * @Route("/profile/update/{id}", name="profile:update")
      */
-    public function profileUpdateAction(Request $request)
+    public function profileUpdateAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         /** @var User $user */
-        $user = $em->getRepository('AppBundle:User')->find($request->get('id'));
+        $user = $em->getRepository('AppBundle:User')->find($id);
         if(!$user) {
             throw new HttpException('Utilisateur non trouvé!');
         }
@@ -51,8 +51,7 @@ class DefaultController extends Controller
             return $this->redirect($this->generateUrl('user:profile:view',  ['id' => $user->getId()]));
         }
 
-
-        return $this->render('default/profile-update.html.twig', ['form' => $form->createView()]);
+        return $this->render('default/profile-update.html.twig', ['form' => $form->createView(), 'user' => $user]);
     }
 
     /**
@@ -66,16 +65,8 @@ class DefaultController extends Controller
         if(!$user) {
             throw new HttpException('Utilisateur non trouvé!');
         }
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->updateUser($user);
-            return $this->redirect($this->generateUrl('user:profile:view'));
-        }
-
-
-        return $this->render('default/profile-update.html.twig', ['form' => $form->createView(), '']);
+        return $this->render('default/profile-view.html.twig', ['user' => $user]);
     }
 
     private function updateUser(User $user)

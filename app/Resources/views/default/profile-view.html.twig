@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {{ user.email }}
+    {{ user.firstname }}
+    {{ user.lastname }}
+
+    <a href="{{ url("profile:update", {'id': user.id}) }}" target="_blank" >Mise à jour</a>
+{% endblock %}

@@ -7,16 +7,15 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UserType extends InscriptionUserType
+class UserType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        parent::buildForm($builder, $options);
         $builder
-            ->add('thumbnail', FileType::class, array('label' => 'Image de profil'))
+            ->add('thumbnail', FileType::class, array('data_class' => null, 'label' => 'Image de profil'))
             ->add('job')
             ->add('unit')
             ->add('description')
