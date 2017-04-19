@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+
+    <form method="GET" action="{{ url('user:profile:list') }}" style="background:#ddd">
+        <div class="form-group">
+            <input type="text" name="query" value="{{ query }}" style="margin-top: 10px; padding: 6px; width: 80%; margin-left:10%; border-radius: 20px; border: solid 1px black;" placeholder="Recherche">
+            <button style="margin-left: -30px;" type="submit" class="btn btn-fab btn-fab-mini">
+                <i class="material-icons">send</i>
+                <div class="ripple-container"></div>
+            </button>
+        </div>
+    </form>
+{% endblock %}
