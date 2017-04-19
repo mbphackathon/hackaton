@@ -22,6 +22,7 @@ class LoginController extends Controller
         $manager = $this->container->get('app.login');
         $manager->gotoGoogleLogin();
 
+        exit();
         return new Response('ok');
     }
 

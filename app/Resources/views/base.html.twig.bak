@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 
-    <title>My Best Team</title>
+    <title>Bootstrap Material</title>
 
     <!-- Material Design fonts -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
@@ -27,8 +27,8 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="/asset/style.css">
-    <link rel="stylesheet" href="/asset/override.css">
+    <link rel="stylesheet" href="asset/style.css">
+    <link rel="stylesheet" href="asset/override.css">
 
 </head>
 <body>
@@ -51,7 +51,7 @@
 
         <div class="row">
             <div class="col-md-12" style="text-align:center">
-                <img src="/public/images/logo.png" title="logo My Best team" style="width:350px"/>
+                <h1 id="buttons">My Best Team</h1>
             </div>
         </div>
 
@@ -59,7 +59,57 @@
 
 
         <div class="container">
-            {% block content %}{% endblock %}
+            <div class="row" style="padding:12px">
+                <a style="width:100%" href="{{ path('login_google')}}" class="btn btn-raised btn-primary">S'inscrire avec Gmail</a>
+
+
+
+
+                <div class="bs-component" style="padding: 20px">
+                    <form class="form-horizontal"method="post" action="">
+                        <fieldset>
+
+
+
+
+                            <div class="form-group label-floating">
+                                <label class="control-label" for="focusedInput2">Prénom</label>
+                                <input class="form-control" id="focusedInput2" type="text">
+                            </div>
+
+
+                            <div class="form-group label-floating">
+                                <label class="control-label" for="focusedInput2">Nom</label>
+                                <input class="form-control" id="focusedInput2" type="text">
+                            </div>
+
+                            <div class="form-group label-floating">
+                                <label class="control-label" for="focusedInput2">Email</label>
+                                <input class="form-control" id="focusedInput2" type="text">
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <div class="col-md-12" style="text-align:center">
+                                    <button type="submit" class="btn btn-raised btn-primary">Inscription</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
         </div>
 
 
@@ -101,58 +151,11 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
 
 
-    <script src="/vendor/jcarousel.js"></script>
-
-
     <script>
     $(function () {
         $.material.init();
         $(".shor").noUiSlid
     })
-
-</script>
-
-
-
-<script>
-
-
-    (function($) {
-        $(function() {
-            $('.jcarousel').jcarousel();
-
-            $('.jcarousel-control-prev')
-                .on('jcarouselcontrol:active', function() {
-                    $(this).removeClass('inactive');
-                })
-                .on('jcarouselcontrol:inactive', function() {
-                    $(this).addClass('inactive');
-                })
-                .jcarouselControl({
-                    target: '-=1'
-                });
-
-            $('.jcarousel-control-next')
-                .on('jcarouselcontrol:active', function() {
-                    $(this).removeClass('inactive');
-                })
-                .on('jcarouselcontrol:inactive', function() {
-                    $(this).addClass('inactive');
-                })
-                .jcarouselControl({
-                    target: '+=1'
-                });
-
-            $('.jcarousel-pagination')
-                .on('jcarouselpagination:active', 'a', function() {
-                    $(this).addClass('active');
-                })
-                .on('jcarouselpagination:inactive', 'a', function() {
-                    $(this).removeClass('active');
-                })
-                .jcarouselPagination();
-        });
-    })(jQuery);
 
 </script>
 

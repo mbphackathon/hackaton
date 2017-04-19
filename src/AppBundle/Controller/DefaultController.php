@@ -69,6 +69,21 @@ class DefaultController extends Controller
         return $this->render('default/profile-view.html.twig', ['user' => $user]);
     }
 
+
+    /**
+     * @Route("/profile/list", name="user:profile:list")
+     */
+    public function profileListAction(Request $request)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        /** @var User $user */
+        $users = $em->getRepository('AppBundle:User')->findAll();
+        return $this->render('default/profile-list.html.twig', ['users' => $users]);
+    }
+
+
+
     private function updateUser(User $user)
     {
         $em = $this->getDoctrine()->getManager();
